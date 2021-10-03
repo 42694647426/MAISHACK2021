@@ -9,7 +9,7 @@
 ![alt text](official_website/static/Picture1.png)
 
 
-## Inspiration & ## What it does
+## Inspiration & What it does
 Have you ever seen a beautiful flower and wondered what kind of flower it is? Have you ever stepped on a pretty leaf and questioned which tree did it possibly fall of? Well, you're not the first In this website, you can get the answer to all your questions by simply uploading a picture!
 
 ## How we built it
