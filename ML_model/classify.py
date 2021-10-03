@@ -1,3 +1,5 @@
+# Original source: Adrian Rosebrock, Pyimagesearch blog owner 
+
 # USAGE
 # python classify.py --images dataset/images --masks dataset/masks
 
