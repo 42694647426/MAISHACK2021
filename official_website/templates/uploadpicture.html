@@ -80,14 +80,24 @@
 			}
 		</style>
         </form>
-    {% if filename %}
-    <div style="width: 100%;padding:20px;">
-        <img src="{{ url_for('display_image', filename=filename) }}" width="100%">
+    <div class="row">
+        <div class="col">
+            {% if filename %}
+            <div style="width: 100%;padding:20px;">
+                <img src="{{ url_for('display_image', filename=filename) }}" width="100%">
+            </div>
+            {% endif %}
+        </div>
+        <div class="col">
+            {% if prediction.any() %}
+             <ul>
+                {% for r in prediction %}
+                <li> {{r}} </li>
+                {% endfor %}
+             </ul>
+            {% endif %}
+        </div>
     </div>
-    {% endif %}
-    {% if prediction %}
-    <p>prediction</p>
-    {% endif %}
     </div>
 </body>
 </html>

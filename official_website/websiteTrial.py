@@ -3,6 +3,8 @@ import urllib.request
 import os
 from werkzeug.utils import secure_filename
 import sys
+import numpy as np
+from PIL import Image
 
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.append(BASE_DIR)
