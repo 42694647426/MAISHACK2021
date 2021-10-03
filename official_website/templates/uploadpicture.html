@@ -46,9 +46,6 @@
 				font-family: 'garamond';
 			}
             
-            .prediction{
-                background-color:rgba(255,255,255,0.5);
-            }
 		</style>
         <p>
             {% with messages = get_flashed_messages() %}
@@ -94,7 +91,7 @@
         </div>
         <div class="col prediction">
             {% if prediction %}
-            <p>{{prediction}}</p>
+            <p>This flower seems to be a {{prediction}}!</p>
             {% endif %}
         </div>
     </div>
