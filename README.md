@@ -6,7 +6,7 @@
 * **[Amanda Ashley Boatswain](https://github.com/AmandaBoatswain)**
 * **[Hanying Shao](https://github.com/42694647426)**
 
-![alt text](official_website/static/Picture1.png)
+![alt text](https://github.com/42694647426/MAISHACK2021/blob/main/official_website/static/uploads/Picture1.png)
 
 
 ## Inspiration & What it does
