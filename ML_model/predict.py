@@ -4,10 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-# filepath = './ML_model/saved_model/VGG16_2.h5'
-filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saved_model/VGG16_2.h5')
-# Load the model
-model = load_model(filepath, compile = True)
+CLASSES = ['alfalfa', 'allium', 'borage', 'calendula', 'chicory', 'chive_blossom', 
+                    'common_mallow', 'coneflower', 'cowslip', 'daffodil', 
+                    'garlic_mustard', 'geranium', 'henbit', 'mullein', 'red_clover']
+
+
 
 def load_image(img_path, show=False):
 
@@ -23,9 +24,21 @@ def load_image(img_path, show=False):
 
     return img_tensor
 
-if __name__ == '__main__':
-    img_path = 'test.jpg'
+def predict(img_path: str):
+    # filepath = './ML_model/saved_model/VGG16_2.h5'
+    filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saved_model/VGG16_2.h5')
+    # Load the model
+    model = load_model(filepath, compile = True)
+    img_path = 'ML_model/photo-1604085572504-a392ddf0d86a.jpg'
     new_image = load_image(img_path)
     # check prediction
     pred = model.predict(new_image)
-    print(pred)
+    return CLASSES[np.argmax(pred)]
+    
+
+
+if __name__ == '__main__':
+    print(predict('ML_model/photo-1604085572504-a392ddf0d86a.jpg'))
+    
+    
+    
