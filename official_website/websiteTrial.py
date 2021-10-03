@@ -54,8 +54,9 @@ def upload_image():
         new_image = predict.load_image(filepath)
         # check prediction
         pred = predict.model.predict(new_image)
+        prediction = np.argmax(pred, axis=1)
 
-        return render_template('uploadpicture.html', filename=filename, prediction = pred)
+        return render_template('uploadpicture.html', filename=filename, prediction=prediction)
     else:
         flash('Allowed image types are - png, jpg, jpeg, gif')
         return redirect(request.url)

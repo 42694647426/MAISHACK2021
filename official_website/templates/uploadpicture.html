@@ -45,6 +45,10 @@
 				margin-left: 40px;
 				font-family: 'garamond';
 			}
+            
+            .prediction{
+                background-color:rgba(255,255,255,0.5);
+            }
 		</style>
         <p>
             {% with messages = get_flashed_messages() %}
@@ -88,13 +92,9 @@
             </div>
             {% endif %}
         </div>
-        <div class="col">
-            {% if prediction.any() %}
-             <ul>
-                {% for r in prediction %}
-                <li> {{r}} </li>
-                {% endfor %}
-             </ul>
+        <div class="col prediction">
+            {% if prediction %}
+            <p>{{prediction}}</p>
             {% endif %}
         </div>
     </div>
