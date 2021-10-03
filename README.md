@@ -3,7 +3,7 @@
 **Team members:**
 * **[Angela Fan](https://github.com/Angelalalula)**
 * **[Zichuan Guan](https://github.com/zcguan)**
-* **[Amanda Ashley Boatswain](https://github.com/AmandaBoatswain)**
+* **[Amanda Boatswain Jacques](https://github.com/AmandaBoatswain)**
 * **[Hanying Shao](https://github.com/42694647426)**
 
 ![alt text](https://github.com/42694647426/MAISHACK2021/blob/main/official_website/static/uploads/Picture1.png)
