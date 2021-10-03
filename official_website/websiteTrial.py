@@ -14,6 +14,7 @@ from ML_model import predict
 app = Flask(__name__)
 # app.config.from_object("config.DevelopmentConfig")
 UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static/uploads/')
 # print(app.config)
  
 app.secret_key = "secret key"
@@ -63,7 +64,7 @@ def upload_image():
         return redirect(request.url)
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER']+ filename)
         file.save(filepath)
         #print('upload_image filename: ' + filename)
         #flash('Image successfully uploaded and displayed below')
