@@ -51,7 +51,7 @@ def home():
 @app.route('/upload')
 def main():
     return render_template("uploadpicture.html")
- 
+
 @app.route('/', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
