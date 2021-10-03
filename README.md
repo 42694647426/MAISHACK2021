@@ -1,4 +1,5 @@
-# MAIS HACK 2021 Project 
+# Plant Biodiversity Tracker 
+## MAIS HACKS 2021 Project 
 
 **Team members:**
 * **[Angela Fan](https://github.com/Angelalalula)**
