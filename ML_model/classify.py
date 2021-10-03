@@ -1,7 +1,7 @@
 # Original source: Adrian Rosebrock, Pyimagesearch blog owner 
 
 # USAGE
-# python classify.py --images dataset/images --masks dataset/masks
+# python classify.py --images ../small_dataset/train 
 
 # import the necessary packages
 from __future__ import print_function
