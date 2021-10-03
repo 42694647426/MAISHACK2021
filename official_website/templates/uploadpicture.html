@@ -85,6 +85,9 @@
         <img src="{{ url_for('display_image', filename=filename) }}" width="100%">
     </div>
     {% endif %}
+    {% if prediction %}
+    <p>prediction</p>
+    {% endif %}
     </div>
 </body>
 </html>

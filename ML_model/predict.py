@@ -2,8 +2,10 @@ from keras.models import load_model
 from keras.preprocessing import image
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
-filepath = './ML_model/saved_model'
+# filepath = './ML_model/saved_model/VGG16_2.h5'
+filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saved_model/VGG16_2.h5')
 # Load the model
 model = load_model(filepath, compile = True)
 

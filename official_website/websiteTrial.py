@@ -2,10 +2,17 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
+import sys
+
+BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+sys.path.append(BASE_DIR)
+from ML_model import predict
+
  
 app = Flask(__name__)
-
+# app.config.from_object("config.DevelopmentConfig")
 UPLOAD_FOLDER = 'static/uploads/'
+# print(app.config)
  
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -25,7 +32,7 @@ def home():
 def main():
     return render_template("uploadpicture.html")
  
-@app.route('/upload', methods=['POST'])
+@app.route('/', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
         flash('No file part')
@@ -36,14 +43,17 @@ def upload_image():
         return redirect(request.url)
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
         #print('upload_image filename: ' + filename)
         #flash('Image successfully uploaded and displayed below')
 
-        # call analyse with the uploaded file
+        # call predict to analyze the uploaded file
+        new_image = predict.load_image(filepath)
+        # check prediction
+        pred = predict.model.predict(new_image)
 
-        
-        return render_template('uploadpicture.html', filename=filename)
+        return render_template('uploadpicture.html', filename=filename, prediction = pred)
     else:
         flash('Allowed image types are - png, jpg, jpeg, gif')
         return redirect(request.url)
