@@ -64,6 +64,11 @@
                 font-size: 25px;
 				margin-left: 40px;
 			}
+            .pred-text
+			{
+				font-size: 25px;
+				font-family: 'garamond';
+			}
 		</style>
         <form method="post" action="/" enctype="multipart/form-data">
             <dl>
@@ -91,7 +96,7 @@
         </div>
         <div class="col prediction">
             {% if prediction %}
-            <p>This flower seems to be a {{prediction}}!</p>
+            <p class="pred-text">This flower seems to be a {{prediction}}!</p>
             {% endif %}
         </div>
     </div>
