@@ -45,6 +45,7 @@
 				margin-left: 40px;
 				font-family: 'garamond';
 			}
+            
 		</style>
         <p>
             {% with messages = get_flashed_messages() %}
@@ -80,14 +81,20 @@
 			}
 		</style>
         </form>
-    {% if filename %}
-    <div style="width: 100%;padding:20px;">
-        <img src="{{ url_for('display_image', filename=filename) }}" width="100%">
+    <div class="row">
+        <div class="col">
+            {% if filename %}
+            <div style="width: 100%;padding:20px;">
+                <img src="{{ url_for('display_image', filename=filename) }}" width="100%">
+            </div>
+            {% endif %}
+        </div>
+        <div class="col prediction">
+            {% if prediction %}
+            <p>This flower seems to be a {{prediction}}!</p>
+            {% endif %}
+        </div>
     </div>
-    {% endif %}
-    {% if prediction %}
-    <p>prediction</p>
-    {% endif %}
     </div>
 </body>
 </html>

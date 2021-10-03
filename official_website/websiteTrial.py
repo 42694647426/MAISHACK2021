@@ -3,6 +3,8 @@ import urllib.request
 import os
 from werkzeug.utils import secure_filename
 import sys
+import numpy as np
+from PIL import Image
 
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.append(BASE_DIR)
@@ -17,6 +19,24 @@ UPLOAD_FOLDER = 'static/uploads/'
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+FLOWER_TYPE = [
+    'alfalfa' ,
+    'allium'      ,
+    'borage' ,
+    'calendula' ,
+    'chicory'  ,
+    'chive_blossom',
+    'common_mallow',
+    'coneflower'  ,
+    'cowslip'     ,
+    'daffodil'      ,
+    'garlic_mustard'    ,
+    'geranium'      ,
+    'henbit'     ,
+    'mullein'     ,
+    'red_clover'    ,
+]
  
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
  
@@ -52,8 +72,11 @@ def upload_image():
         new_image = predict.load_image(filepath)
         # check prediction
         pred = predict.model.predict(new_image)
+        prediction = np.argmax(pred, axis=1)
+        if prediction:
+            prediction = FLOWER_TYPE[prediction[0]]
 
-        return render_template('uploadpicture.html', filename=filename, prediction = pred)
+        return render_template('uploadpicture.html', filename=filename, prediction=prediction)
     else:
         flash('Allowed image types are - png, jpg, jpeg, gif')
         return redirect(request.url)
@@ -63,6 +86,6 @@ def upload_image():
 def display_image(filename):
     #print('display_image filename: ' + filename)
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
- 
+
 if __name__ == "__main__":
     app.run(debug=True)
