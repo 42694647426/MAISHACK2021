@@ -36,7 +36,6 @@
 	</div>
 
     <div class="container">
-    <div class="row">
        
         <h2 style="color:white;">Select a file to upload</h2>
         <style type="text/css">
@@ -65,11 +64,6 @@
 				margin-left: 40px;
 			}
 		</style>
-        {% if filename %}
-            <div style="padding:20px;">
-                <img src="{{ url_for('display_image', filename=filename) }}">
-            </div>
-        {% endif %}
         <form method="post" action="/" enctype="multipart/form-data">
             <dl>
                 <p>
@@ -86,7 +80,11 @@
 			}
 		</style>
         </form>
+    {% if filename %}
+    <div style="width: 100%;padding:20px;">
+        <img src="{{ url_for('display_image', filename=filename) }}" width="100%">
     </div>
+    {% endif %}
     </div>
 </body>
 </html>

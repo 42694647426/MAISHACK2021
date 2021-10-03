@@ -226,4 +226,7 @@ cython_debug/
 .history
 .ionide
 
+### Uploaded images ###
+upload/*
+
 # End of https://www.toptal.com/developers/gitignore/api/flask,visualstudiocode,python

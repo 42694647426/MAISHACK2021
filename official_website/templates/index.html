@@ -1,8 +1,12 @@
 ﻿<html>
 <head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
 <title>Biodiversity Tracker</title>
 		
-		<h1>Welcome to our Biodiversity Tracker page</h1>
 		<style type="text/css">
 			h1
 			{
@@ -19,7 +23,9 @@
         background-image:url({{url_for('static',filename='backgroundFinal.jpg')}})  
 		}
     </style>
-	
+	<div class="mt-2">
+		<h1>Welcome to our Biodiversity Tracker page</h1>
+	</div>
 	<div class="container">
 		<style type="text/css">
 			div
@@ -34,7 +40,8 @@
         <h2>Have you ever seen a beautiful flower and wondered what kind of flower it is?</h2>
         <h2>Have you ever stepped on a pretty leaf and questioned which tree did it possibly fall of?</h2>
         <h2>Well, you're not the first</h2>
-        <h2>In this website, you can get the answer to all your questions by simply <a href="{{url_for('main')}}"> uploading a picture! </a><h2>
+        <h2>In this website, you can get the answer to all your questions by simply <h2>
+			<a class='btn btn-success btn-lg center' role="button" href="{{url_for('main')}}"> uploading a picture! </a>
 
         <style type="text/css">
 			h2

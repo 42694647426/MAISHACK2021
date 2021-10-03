@@ -4,7 +4,7 @@ import os
 from werkzeug.utils import secure_filename
  
 app = Flask(__name__)
- 
+
 UPLOAD_FOLDER = 'static/uploads/'
  
 app.secret_key = "secret key"
@@ -16,7 +16,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
      
- 
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -25,7 +25,7 @@ def home():
 def main():
     return render_template("uploadpicture.html")
  
-@app.route('/', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
         flash('No file part')
@@ -39,6 +39,10 @@ def upload_image():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         #print('upload_image filename: ' + filename)
         #flash('Image successfully uploaded and displayed below')
+
+        # call analyse with the uploaded file
+
+        
         return render_template('uploadpicture.html', filename=filename)
     else:
         flash('Allowed image types are - png, jpg, jpeg, gif')
@@ -51,4 +55,4 @@ def display_image(filename):
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
  
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
